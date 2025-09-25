@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="redux.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <div class="counter-board">
+                <div class="content">
+                    <span class="value-counter">6</span>
+                </div>
+                <div class="wrapper-btn">
+                    <button class="btn decrease">
+                        <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <button class="btn reset">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                    <button class="btn increase">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+                <button class="btn remove-listener">Remove Listener</button>
+            </div>
+        </div>
+
+        <script type="module">
+            import { store } from "./redux.js"
+            const counterValue = document.querySelector(".value-counter")
+            const render = () => {
+                counterValue.innerHTML = store.getState()
+            }
+
+            const increaseBtn = document.querySelector(".increase")
+            const decreaseBtn = document.querySelector(".decrease")
+            const resetBtn = document.querySelector(".reset")
+            const removeListener = document.querySelector(".remove-listener")
+
+            increaseBtn.addEventListener("click", () => {
+                store.dispatch({
+                    type: "increase",
+                })
+            })
+
+            decreaseBtn.addEventListener("click", () => {
+                store.dispatch({
+                    type: "decrease",
+                })
+            })
+
+            resetBtn.addEventListener("click", () => {
+                store.dispatch({
+                    type: "reset",
+                })
+            })
+
+            removeListener.addEventListener("click", () => {
+                removeLis()
+            })
+
+            render()
+
+            const removeLis = store.subscribe(render)
+        </script>
+    </body>
+</html>

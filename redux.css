@@ -1,0 +1,56 @@
+.container {
+    max-width: 380px;
+    background-color: #f6ffff;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 18px;
+    padding: 20px 0;
+}
+
+.content {
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 120px 0;
+    border-radius: 18px;
+    background: linear-gradient(to bottom left, #fef9c3, #fde68a, #fbcfe8);
+}
+
+.value-counter {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    font-size: 55px;
+    font-weight: 600;
+}
+
+.wrapper-btn {
+    margin: 30px 0;
+}
+
+.btn {
+    background-color: #d3edff;
+    border: none;
+    padding: 30px 30px;
+    font-size: 25px;
+    opacity: 0.7;
+    border-radius: 12px;
+}
+
+.btn:hover,
+.remove-listener:hover {
+    background-color: #a9dafd;
+    cursor: pointer;
+}
+
+.reset {
+    margin: 0 10px;
+}
+
+.remove-listener {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #d3edff;
+}
