@@ -7,11 +7,9 @@ import styles from "./TaskList.module.scss"
 import TaskItem from "@/components/TaskItem"
 import Modal from "@/components/Modal"
 import Buttons from "@/components/Buttons"
-import useStore from "@/hooks/useStore/useStore"
 
 function TaskList() {
     const dispatch = useDispatch()
-    const store = useStore()
     console.log(store);
     
     const { tasks, loading, error } = useSelector((state) => state)
