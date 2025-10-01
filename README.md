@@ -2,6 +2,10 @@
 
 ## Redux Core & React-Redux Integration
 
+-   Chạy dự án:
+    B1: Clone repo về máy
+    B2: Chạy lệnh npm run all => Để chạy mock-api và npm run dev
+
 ---
 
 ## 🎯 Yêu cầu chung

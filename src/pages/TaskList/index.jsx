@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { NavLink, useNavigate } from "react-router"
+import { FiPlus } from "react-icons/fi"
 
 import useDispatch from "@/hooks/useDispatch/useDispatch"
 import useSelector from "@/hooks/useSelector/useSelector"
@@ -7,10 +8,11 @@ import styles from "./TaskList.module.scss"
 import TaskItem from "@/components/TaskItem"
 import Modal from "@/components/Modal"
 import Buttons from "@/components/Buttons"
+import Header from "@/components/Header"
 
 function TaskList() {
     const dispatch = useDispatch()
-    
+
     const { tasks, loading, error } = useSelector((state) => state)
     const [isDeleting, setIsDeleting] = useState(false)
     const [currentTask, setCurrentTask] = useState(null)
@@ -84,61 +86,70 @@ function TaskList() {
 
     return (
         <div className={styles.container}>
-            {!error && (
-                <Buttons
-                    onClick={() => navigate("/new-task")}
-                    className={styles.btnAdd}
-                >
-                    Create New Task !!
-                </Buttons>
-            )}
-            {loading && <div>Đang tải...</div>}
-            {error && <div className="error-banner">⚠️ {error}</div>}
-            {/* Hiển thị tasks (có thể là data cũ nếu fetch lỗi) */}
-            {tasks.length > 0 ? (
-                <div className={styles.listItem}>
-                    {tasks.map((task) => (
-                        <TaskItem
-                            key={task.id}
-                            task={task}
-                            onEdit={() => {
-                                handleEdit(task.id)
-                            }}
-                            onDelete={() => {
-                                setIsDeleting(true)
-                                setCurrentTask(task.id)
-                            }}
-                            isDeleting={isDeleting}
-                        />
-                    ))}
-                </div>
-            ) : (
-                !error && (
-                    <div className={styles.wrapperNothing}>
-                        <p>Nothing ...</p>
-                    </div>
-                )
-            )}
+            <Header />
+            <div className={styles.content}>
+                {loading && <div>Đang tải...</div>}
+                {error && <div className="error-banner">⚠️ {error}</div>}
+                {/* Hiển thị tasks (có thể là data cũ nếu fetch lỗi) */}
 
-            <Modal isOpen={isDeleting} onRequestClose={() => closeModal()}>
-                <div className={styles.headingModal}>
-                    Are you sure delete it ??
+                <div className={styles.listItem}>
+                    <div className={styles.headerTaskList}>
+                        <h1 className={styles.heading}>Daily Tasks</h1>
+                        {!error && (
+                            <Buttons
+                                onClick={() => navigate("/new-task")}
+                                className={styles.btnAdd}
+                            >
+                                <FiPlus /> New Task
+                            </Buttons>
+                        )}
+                    </div>
+                    {tasks.length > 0 ? (
+                        <>
+                            {tasks.map((task) => (
+                                <TaskItem
+                                    key={task.id}
+                                    task={task}
+                                    onEdit={() => {
+                                        handleEdit(task.id)
+                                    }}
+                                    onDelete={() => {
+                                        setIsDeleting(true)
+                                        setCurrentTask(task.id)
+                                    }}
+                                    isDeleting={isDeleting}
+                                />
+                            ))}
+                        </>
+                    ) : (
+                        !error && (
+                            <div className={styles.wrapperNothing}>
+                                <p>Nothing ...</p>
+                            </div>
+                        )
+                    )}
                 </div>
-                <div className={styles.btns}>
-                    <button
-                        onClick={() => setIsDeleting(false)}
-                        className={styles.btnModalCancel}
-                    >
-                        Cancel
-                    </button>
-                    <button
-                        onClick={() => handleDelete(currentTask)}
-                        className={styles.btnModalSure}
-                    >
-                        Sure
-                    </button>
-                </div>
-            </Modal>
+
+                <Modal isOpen={isDeleting} onRequestClose={() => closeModal()}>
+                    <div className={styles.headingModal}>
+                        Are you sure delete it ??
+                    </div>
+                    <div className={styles.btns}>
+                        <button
+                            onClick={() => setIsDeleting(false)}
+                            className={styles.btnModalCancel}
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            onClick={() => handleDelete(currentTask)}
+                            className={styles.btnModalSure}
+                        >
+                            Sure
+                        </button>
+                    </div>
+                </Modal>
+            </div>
         </div>
     )
 }

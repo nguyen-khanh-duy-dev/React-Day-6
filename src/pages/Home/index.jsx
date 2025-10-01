@@ -8,7 +8,7 @@ function Home() {
 
     return (
         <div className={styles.container}>
-            <Header title="Redux" subtitle="Redux core & React Redux" />
+            <Header />
 
             <div className={styles.content}>
                 <Buttons
@@ -38,7 +38,6 @@ function Home() {
                         <span>Todyy App Demo</span>
                     </div>
                 </Buttons>
-                
             </div>
         </div>
     )

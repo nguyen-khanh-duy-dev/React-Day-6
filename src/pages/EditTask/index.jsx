@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router"
 import useDispatch from "@/hooks/useDispatch/useDispatch"
 import useSelector from "@/hooks/useSelector/useSelector"
 import TaskForm from "@/components/TaskForm"
+import Header from "@/components/Header"
 
 function EditTask() {
     const [formValue, setFormValue] = useState({
@@ -62,12 +63,15 @@ function EditTask() {
     }
 
     return (
-        <TaskForm
-            initialData={formValue}
-            onSubmit={updateTask}
-            submitText={"Update"}
-            isLoading={isLoading}
-        />
+        <div>
+        <Header/>
+            <TaskForm
+                initialData={formValue}
+                onSubmit={updateTask}
+                submitText={"Update"}
+                isLoading={isLoading}
+            />
+        </div>
     )
 }
 

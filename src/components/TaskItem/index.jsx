@@ -1,4 +1,6 @@
 import PropTypes from "prop-types"
+import { FaRegEdit } from "react-icons/fa"
+import { FaRegTrashAlt } from "react-icons/fa"
 
 import styles from "./TaskItem.module.scss"
 import Buttons from "../Buttons"
@@ -17,7 +19,7 @@ function TaskItem({ task, onEdit, onDelete, isDeleting }) {
                     size="small"
                     className={styles.cusEditBtn}
                 >
-                    Edit
+                    <FaRegEdit />
                 </Buttons>
                 <Buttons
                     onClick={onDelete}
@@ -25,7 +27,7 @@ function TaskItem({ task, onEdit, onDelete, isDeleting }) {
                     size="small"
                     className={styles.cusDelBtn}
                 >
-                    Delete
+                    <FaRegTrashAlt />
                 </Buttons>
             </div>
         </div>

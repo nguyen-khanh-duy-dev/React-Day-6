@@ -3,6 +3,7 @@ import { useNavigate } from "react-router"
 
 import styles from "./NewTask.module.scss"
 import TaskForm from "@/components/TaskForm"
+import Header from "@/components/Header"
 
 function NewTask() {
     const navigate = useNavigate()
@@ -39,6 +40,7 @@ function NewTask() {
     }
     return (
         <div className={styles.container}>
+            <Header />
             <TaskForm
                 initialData={{}}
                 onSubmit={handleAddTask}

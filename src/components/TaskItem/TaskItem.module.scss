@@ -4,6 +4,7 @@
     align-items: center;
     gap: 45px;
     padding: 10px 0;
+    border-bottom: 1px solid #e6e6e6;
 
     .taskTitle {
         padding: 0 5px;
@@ -11,7 +12,6 @@
 
     .btns {
         display: flex;
-        gap: 10px;
     }
 
     .cusEditBtn,
@@ -28,18 +28,22 @@
     }
 
     .cusEditBtn {
-        background-color: #facc15;
+        background-color: transparent;
+        scale: 1;
 
         &:hover {
-            background-color: #eab308;
+            background-color: transparent;
+            scale: 1.02;
         }
     }
 
     .cusDelBtn {
-        background-color: #ef4444;
+        background-color: transparent;
+        scale: 1;
 
         &:hover {
-            background-color: #dc2626;
+            background-color: transparent;
+            scale: 1.02;
         }
     }
 }
