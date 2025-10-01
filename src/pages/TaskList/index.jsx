@@ -10,7 +10,6 @@ import Buttons from "@/components/Buttons"
 
 function TaskList() {
     const dispatch = useDispatch()
-    console.log(store);
     
     const { tasks, loading, error } = useSelector((state) => state)
     const [isDeleting, setIsDeleting] = useState(false)
