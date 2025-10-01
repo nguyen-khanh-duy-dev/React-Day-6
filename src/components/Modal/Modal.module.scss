@@ -1,0 +1,60 @@
+.modal,
+.overlay {
+    position: fixed;
+    inset: 0;
+}
+
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+
+    .content {
+        position: relative;
+        padding: 20px;
+        z-index: 1;
+        background-color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    // trạng thái mở
+    .contentOpen {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    // trạng thái đóng
+    .contentClose {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    .closeBtn {
+        position: absolute;
+        top: 10px;
+        right: 8px;
+        border: none;
+        background-color: transparent;
+        font-size: 19px;
+        cursor: pointer;
+    }
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    &.overlayOpen {
+        opacity: 1;
+    }
+
+    &.overlayClose {
+        opacity: 0;
+    }
+}

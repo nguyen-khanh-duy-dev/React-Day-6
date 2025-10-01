@@ -1,0 +1,75 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1100px;
+    min-height: 300px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    margin: 0 auto;
+    border: 1px solid #f4f6f9;
+    background-color: #f4f6f9;
+    border-radius: 16px;
+
+    .headingModal {
+        font-size: 22px;
+        font-weight: 600;
+        padding: 12px 0;
+    }
+
+    .btns {
+        display: flex;
+        justify-content: flex-end;
+        gap: 6px;
+
+        .btnModalCancel,
+        .btnModalSure {
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .btnModalCancel {
+            background-color: #ef4444;
+            transition: background-color 0.2s;
+
+            &:hover {
+                background-color: #dc2626;
+            }
+        }
+
+        .btnModalSure {
+            background-color: #2563eb;
+            transition: background-color 0.2s;
+
+            &:hover {
+                background-color: #1d4ed8;
+            }
+        }
+    }
+
+    .listItem {
+        display: inline-block;
+        padding: 0;
+    }
+
+    .wrapperNothing {
+        text-align: center;
+    }
+    .btnAdd {
+        padding: 6px 8px;
+        text-decoration: none;
+        color: #ffffff;
+        border-radius: 6px;
+        background-color: #2563eb;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #1d4ed8;
+        }
+    }
+}

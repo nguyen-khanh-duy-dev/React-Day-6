@@ -46,6 +46,7 @@
             const resetBtn = document.querySelector(".reset")
             const removeListener = document.querySelector(".remove-listener")
 
+            // Thực hiện thao tác trên UI(Click, ...) sau đó bắn dispatch đi
             increaseBtn.addEventListener("click", () => {
                 store.dispatch({
                     type: "increase",
@@ -70,6 +71,10 @@
 
             render()
 
+            // listener ở đây chính là hàm render.
+            // -> Mỗi khi state được gán lại sẽ thực hiện chạy các hàm listener
+            // unsubscribe -> Thực hiện lọc bỏ listener đó khỏi mảng listeners
+            // => Không chạy hàm listener đó nữa nhưng state thực sự vẫn thay đổi
             const removeLis = store.subscribe(render)
         </script>
     </body>
