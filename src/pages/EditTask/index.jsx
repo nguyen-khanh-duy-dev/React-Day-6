@@ -51,7 +51,7 @@ function EditTask() {
                 payload: { id: param.id, title: inputValue.title },
             })
 
-            navigate("/")
+            navigate("/task-list")
         } catch (error) {
             setIsLoading(false)
             dispatch({

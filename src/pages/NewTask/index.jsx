@@ -9,7 +9,6 @@ function NewTask() {
     const dispatch = useDispatch()
 
     const handleAddTask = async (inputValue) => {
-
         try {
             const response = await fetch(`http://localhost:5000/tasks/`, {
                 method: "POST",
@@ -30,7 +29,7 @@ function NewTask() {
                 payload: newTask,
             })
 
-            navigate("/")
+            navigate("/task-list")
         } catch (error) {
             dispatch({
                 type: "SET_ERROR",
@@ -40,7 +39,11 @@ function NewTask() {
     }
     return (
         <div className={styles.container}>
-            <TaskForm initialData={{}} onSubmit={handleAddTask} submitText={'Create'}/>
+            <TaskForm
+                initialData={{}}
+                onSubmit={handleAddTask}
+                submitText={"Create"}
+            />
         </div>
     )
 }

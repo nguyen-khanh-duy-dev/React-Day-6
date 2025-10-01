@@ -71,7 +71,7 @@ function TaskForm({
                         <button
                             type="button"
                             className={styles.cancelBtn}
-                            onClick={() => navigate("/")}
+                            onClick={() => navigate("/task-list")}
                         >
                             Cancel
                         </button>
